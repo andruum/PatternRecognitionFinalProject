@@ -1,0 +1,13 @@
+TODO:
+
+1)Pre-processing
+
+Do normalization before, to solve a problem with different positions of digits.
+
+Find the paper about spherical coordinates and how to use this in our case
+
+
+
+Links:
+3D Mnist
+https://medium.com/shashwats-blog/3d-mnist-b922a3d07334
