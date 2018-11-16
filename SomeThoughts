@@ -1,11 +1,11 @@
 TODO:
 
-1)Pre-processing
-
+1)Make functions for visualization
+2)Make functions for normalization
 Do normalization before, to solve a problem with different positions of digits.
-
-Find the paper about spherical coordinates and how to use this in our case
-
+3)Research: Find the paper about spherical coordinates and how to use this in our case
+4)Research: Way to project points to 2D plane
+5)Research: Voxelization of data like in the article below 
 
 
 Links:
