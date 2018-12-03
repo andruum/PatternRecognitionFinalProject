@@ -5,13 +5,14 @@ close all;
 addpath("./utils");
 
 path_folder = "./training_data";
-digit = 2;
-samplenum = 1;
-                                               
+digit = 8;
+samplenum = 79;
+
 while 1
 samplenum
 pos = loadsample(path_folder,digit,samplenum);
-display_3d(pos')
+pos = data_normalize(pos','minmax');
+display_2d(pos)
 k = waitforbuttonpress;
 value = double(get(gcf,'CurrentCharacter'));
 if value == 27 %ESC 
