@@ -3,8 +3,8 @@ function img = coord2img(points)
 %   Detailed explanation goes here
 
 %Parameters
-rows = 30;
-cols = 20;
+rows = 40;
+cols = 30;
 
 img = zeros(rows,cols,1);
 
