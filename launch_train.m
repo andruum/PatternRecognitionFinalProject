@@ -2,13 +2,14 @@
 clear all;
 addpath("./utils");
 path_folder = "./training_data";
-weights_name = "weights.mat"
+nb_train_samples = 70 ;
 
-% Code 
+%% train mlp
+weights_name = "weights.mat" ;
 classes = [];
 imgs = [];
 for d=0:9
-   for s=1:70
+   for s=1:nb_train_samples
         pnts = loadsample(path_folder,d,s);
         pnts(:,3) = [];
         pnts=pnts';
