@@ -1,4 +1,6 @@
 %% Sample parametes
+% execute by section to save time
+
 addpath("C:\Users\pauline\Desktop\LUT - Pattern Recognition\Practical assignement - digits_3D\git_code\utils");
 path_folder = "C:\Users\pauline\Desktop\LUT - Pattern Recognition\Practical assignement - digits_3D\training_data";
 
