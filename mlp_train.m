@@ -1,5 +1,5 @@
 function [testclass, t, wHidden, wOutput] = ...
-  mlp_train(traindata, trainclass, maxEpochs)
+  mlp_train(traindata, trainclass, maxEpochs,weightsname)
 %MLP_TRAIN Summary of this function goes here
 %   Detailed explanation goes here
 
@@ -23,7 +23,7 @@ J=zeros(1,maxEpochs);
 
 rho=0.0001;
 
-hidden=20; % number of hidden layer neurons
+hidden=100; % number of hidden layer neurons
 
 trainOutput=zeros(classes,N);
 for i=1:N,
@@ -43,9 +43,7 @@ while 1
   
   vHidden=wHidden'*extendedInput;
   yHidden=tanh(vHidden);
-
   yHidden=[yHidden;ones(1,N)];
-
   vOutput=wOutput'*yHidden;
   yOutput=vOutput;
   
@@ -83,4 +81,4 @@ while 1
   wHidden=wHidden+deltawHidden;
 end
 
-save("weights.mat",'wOutput','wHidden')
+save(weightsname,'wOutput','wHidden')

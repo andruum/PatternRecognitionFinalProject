@@ -2,7 +2,7 @@
 clear all;
 addpath("./utils");
 path_folder = "./training_data";
-weights_name = "weights.mat"
+weights_name = "weights.mat";
 
 % Code 
 classes = [];
@@ -14,9 +14,11 @@ for d=0:9
         pnts=pnts';
         classes = [classes d];
         pnts = data_normalize(pnts,'minmax');
+        pnts = removegaps(pnts);
         img = coord2img(pnts);
         imgs = cat(3,imgs,img);
    end
 end
 
 mlp_train(imgs,classes,20000,weights_name);
+

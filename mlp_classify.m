@@ -10,9 +10,7 @@ extendedInput=[testdata;ones(1,N)];
 
 vHidden=wHidden'*extendedInput;
 yHidden=tanh(vHidden);
-
 yHidden=[yHidden;ones(1,N)];
-
 vOutput=wOutput'*yHidden;
 yOutput=vOutput;
 

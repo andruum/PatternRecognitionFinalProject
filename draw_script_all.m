@@ -6,12 +6,13 @@ addpath("./utils");
 
 path_folder = "./training_data";
 digit = 8;
-samplenum = 79;
+samplenum = 94;
 
 while 1
 samplenum
 pos = loadsample(path_folder,digit,samplenum);
 pos = data_normalize(pos','minmax');
+pos = removegaps(pos);
 display_2d(pos)
 k = waitforbuttonpress;
 value = double(get(gcf,'CurrentCharacter'));

@@ -9,7 +9,7 @@ weights_name = "weights.mat";
 points(:,3) = [];
 points = points';
 points = data_normalize(points,'minmax');
-
+points = removegaps(points);
 %% Classification
 img = coord2img(points);
 C = mlp_classify(img,weights_name);

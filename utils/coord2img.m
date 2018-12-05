@@ -21,5 +21,6 @@ for i=1:n
    img(y,x,1) = img(y,x,1)+1;
 end
 
+
 end
 
