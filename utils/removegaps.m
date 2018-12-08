@@ -1,9 +1,8 @@
 function points = removegaps(points)
 %REMOVEGAPS Summary of this function goes here
 %   Detailed explanation goes here
-
-maxgap = 0.1;
-
+global maxgap
+maxgap = 0.05;
 n = size(points,2)-1;
 i=1;
 while n>0

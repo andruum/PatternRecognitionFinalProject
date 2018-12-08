@@ -1,15 +1,8 @@
 function [testclass, t, wHidden, wOutput] = ...
-  mlp_train(traindata, trainclass, maxEpochs,weightsname)
+  mlp_train(traindata, trainclass, maxEpochs,weightsname,draw)
 %MLP_TRAIN Summary of this function goes here
 %   Detailed explanation goes here
-
-[rows,cols,depth] = size(traindata);
-traindata_tmp = zeros(rows*cols,depth);
-for i=1:depth
-    layer = traindata(:,:,i);
-    traindata_tmp(:,i) = layer(:);
-end
-traindata = traindata_tmp;
+rng('default')
 
 N=size(traindata,2);
 d=size(traindata,1);
@@ -21,12 +14,12 @@ end
 
 J=zeros(1,maxEpochs);
 
-rho=0.0001;
+rho=0.0004;
 
-hidden=100; % number of hidden layer neurons
+hidden=400; % number of hidden layer neurons
 
 trainOutput=zeros(classes,N);
-for i=1:N,
+for i=1:N
   trainOutput(trainclass(i)+1,i)=1;
 end
 
@@ -36,20 +29,25 @@ wHidden=(rand(d+1,hidden)-0.5)/10;
 
 wOutput=(rand(hidden+1,classes)-0.5)/10;
 
-fh1 = figure;
+if draw == 1
+    fh1 = figure;
+end
 t=0;
 while 1
   t=t+1;
   
+  
+  
   vHidden=wHidden'*extendedInput;
-  yHidden=tanh(vHidden);
-  yHidden=[yHidden;ones(1,N)];
+  yHidden = zeros(size(vHidden,1)+1,size(vHidden,2));
+  yHidden(1:size(vHidden,1),:)=sigmf(vHidden,[1 0]);
+  yHidden(end,:)=ones(1,N);
   vOutput=wOutput'*yHidden;
-  yOutput=vOutput;
+  yOutput=softmax(vOutput);
   
   J(t)=0.5*sum(sum((yOutput-trainOutput).^2));
   
-  if (mod(t,1000)==0) % Plot convergence, but not for every epoch
+  if (mod(t,1000)==0 && draw == 1) % Plot convergence, but not for every epoch
     semilogy(1:t,J(1:t));
     title(sprintf('Convergence (epoch %d)', t));
     xlabel('Number of iterations');

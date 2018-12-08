@@ -3,16 +3,15 @@ function testclass = mlp_classify(testdata,weightsname)
 %   Detailed explanation goes here
 load(weightsname);
 
-testdata = testdata(:);
-
 N=size(testdata,2);
 extendedInput=[testdata;ones(1,N)];
 
 vHidden=wHidden'*extendedInput;
-yHidden=tanh(vHidden);
-yHidden=[yHidden;ones(1,N)];
+yHidden = zeros(size(vHidden,1)+1,size(vHidden,2));
+yHidden(1:size(vHidden,1),:)=sigmf(vHidden,[1 0]);
+yHidden(end,:)=ones(1,N);
 vOutput=wOutput'*yHidden;
-yOutput=vOutput;
+yOutput=softmax(vOutput);
 
 [tmp,testclass]=max(yOutput,[],1);
 end
