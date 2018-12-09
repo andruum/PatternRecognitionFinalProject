@@ -1,6 +1,12 @@
 function [meanresult,worsedigit] = mlp_validate(testdataset,weightsname,draw_results)
-%MLP_VALIDATE Summary of this function goes here
-%   Detailed explanation goes here
+%MLP_VALIDATE Estimate precision of NN
+%   [meanresult,worsedigit] = mlp_validate(testdataset,weightsname,draw_results)
+%   testdataset - vector of test dataset
+%   weightsname - path to weights for NN
+%   draw_results - 0/1 boolean value. If it equals 1, function draws
+%   plot of validation results 
+%   meanresult - mean result of TDR
+%   worsedigit - the digit with lowest TDR
 
 td_mlp = zeros(10, 1) ; % each cell is the number of true detections for the digit (index-1)
 fd_mlp = zeros (10, 1);  % each cell is the number of false detections for the digit (index-1)

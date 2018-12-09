@@ -1,8 +1,10 @@
 function points = removegaps(points)
-%REMOVEGAPS Summary of this function goes here
-%   Detailed explanation goes here
-global maxgap
-maxgap = 0.05;
+%REMOVEGAPS Removes gaps between points
+%   points = removegaps(points) Removes gaps between points by adding new
+%   points between.
+%   points - normalized points between [0;1]
+
+maxgap = 0.01;
 n = size(points,2)-1;
 i=1;
 while n>0

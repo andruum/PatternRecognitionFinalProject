@@ -1,6 +1,10 @@
 function [trainset,testset] = loaddataset(folderpath,trainsetsize)
-%LOADDATASET Summary of this function goes here
-%   Detailed explanation goes here
+%LOADDATASET Load dataset from disk
+%   [trainset,testset] = loaddataset(folderpath,trainsetsize)
+%   folderpath - path to dataset folder
+%   trainsetsize - size of training set (the rest of the set will be the test set)
+%   trainset - vector of the training set
+%   testset - vector of the test set
 
 N = 1000*trainsetsize;    
 trainset = repmat(struct('points',[],'class',-1), N, 1);
