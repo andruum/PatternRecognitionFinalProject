@@ -1,6 +1,6 @@
 clear all
 dataset_folder = "./training_data";
-trainsetcount = 0.7;
+trainsetcount = 1;
 addpath("./utils")
 addpath("./datasettools")
 load("./datasettools/dataset.mat")

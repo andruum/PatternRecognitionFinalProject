@@ -4,6 +4,8 @@ function class = mlp_classify(data,weightsname)
 %   data - preprocessed data
 %   weightsname - path to weights for NN
 %   class - recognized class
+
+
 load(weightsname);
 
 N=size(data,2);

@@ -5,7 +5,7 @@ function [meanresult,worsedigit] = mlp_validate(testdataset,weightsname,draw_res
 %   weightsname - path to weights for NN
 %   draw_results - 0/1 boolean value. If it equals 1, function draws
 %   plot of validation results 
-%   meanresult - mean result of TDR
+%   meanresult - mean result of TDR for each digit
 %   worsedigit - the digit with lowest TDR
 
 td_mlp = zeros(10, 1) ; % each cell is the number of true detections for the digit (index-1)
@@ -21,6 +21,7 @@ for i=1:size(testdataset)
     end
 end
 
+%Calculate success rate
 for i=1:10
     td_mlp(i) = td_mlp(i)/size(find([testdataset.class] == i-1),2);
     fd_mlp(i) = fd_mlp(i)/size(find([testdataset.class] == i-1),2);

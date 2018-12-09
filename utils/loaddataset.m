@@ -5,11 +5,13 @@ function [trainset,testset] = loaddataset(folderpath,trainsetsize)
 %   trainsetsize - size of training set (the rest of the set will be the test set)
 %   trainset - vector of the training set
 %   testset - vector of the test set
+%   All sets will be shuffled
 
 N = 1000*trainsetsize;    
 trainset = repmat(struct('points',[],'class',-1), N, 1);
 testset = repmat(struct('points',[],'class',-1), 1000-N, 1);
 
+% Shuffle function
 shuffle = @(v)v(randperm(numel(v)));
 
 ntrainset = 1;

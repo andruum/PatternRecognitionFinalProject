@@ -11,7 +11,7 @@ for i=1:size(trainset,1)
     img = preprocess(trainset(i).points);
     imgs(:,i) = img;
 end
-%% train mlp
+%% Train mlp
 
 mlp_train(imgs,classes,10000,weights_name,1);
 

@@ -7,6 +7,7 @@ function mlp_train(traindata, trainclass, maxEpochs,weightsname,draw_convergence
 %   weightsname - path, where function will save weights for NN
 %   draw_convergence - 0/1 boolean value. If it equals 1, function draws
 %   plot of convergence for training process.
+
 rng('default')
 
 N=size(traindata,2);
@@ -19,7 +20,7 @@ end
 
 J=zeros(1,maxEpochs);
 
-rho=0.001;
+rho=0.001; % learning rate
 
 hidden=10; % number of hidden layer neurons
 
@@ -82,4 +83,5 @@ while 1
   wHidden=wHidden+deltawHidden;
 end
 
+%Save weights
 save(weightsname,'wOutput','wHidden')

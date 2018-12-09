@@ -1,4 +1,4 @@
-function [trainset,testset] = loaddataset(gooddataset,trainsetsize)
+function [trainset,testset] = loadgooddataset(gooddataset,trainsetsize)
 %LOADDATASET Summary of this function goes here
 %   Detailed explanation goes here
 
@@ -6,6 +6,7 @@ N = 1000*trainsetsize;
 trainset = repmat(struct('points',[],'class',-1), N, 1);
 testset = repmat(struct('points',[],'class',-1), 1000-N, 1);
 
+% Shuffle function
 shuffle = @(v)v(randperm(numel(v)));
 
 ntrainset = 1;
